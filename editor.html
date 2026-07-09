@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FactLens PPT 편집기</title>
+  <link rel="stylesheet" href="./assets/editor.css">
+</head>
+<body>
+  <div class="editor-shell">
+    <header class="toolbar">
+      <div class="toolbar-group">
+        <label for="slide-select" class="label">슬라이드</label>
+        <select id="slide-select"></select>
+        <button id="btn-load" class="btn-primary">불러오기</button>
+      </div>
+      <div class="toolbar-group">
+        <button id="mode-move" class="active">이동 모드</button>
+        <button id="mode-edit">텍스트 모드</button>
+        <label class="inline-check">
+          <input type="checkbox" id="snap-toggle" checked>
+          8px 스냅
+        </label>
+      </div>
+      <div class="toolbar-group">
+        <button id="btn-undo">Undo (Ctrl+Z)</button>
+        <button id="btn-redo">Redo (Ctrl+Y)</button>
+      </div>
+      <div class="toolbar-group">
+        <button id="btn-copy">HTML 복사</button>
+        <button id="btn-download">HTML 저장</button>
+        <a class="btn-link" href="viewer.html">발표 모드</a>
+      </div>
+      <div class="toolbar-group status-wrap">
+        <span id="status">슬라이드를 선택해서 불러오면 편집 가능</span>
+      </div>
+    </header>
+
+    <main class="canvas-wrap">
+      <iframe id="stage" title="슬라이드 편집 캔버스"></iframe>
+    </main>
+  </div>
+
+  <script src="./assets/editor.js"></script>
+</body>
+</html>
+

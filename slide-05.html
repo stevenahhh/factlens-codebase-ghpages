@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AWS 스택</title><link rel="stylesheet" href="./assets/deck.css"></head><body><main class="slide"><section class="stage">
+<div class="meta"><span class="section">STACK</span><span class="count">05 / 11</span></div>
+<div class="content"><h1 class="big-title">AWS 스택</h1><p class="headline">서버리스 풀스택 — 배포, 라우팅, 실행, 저장, AI 판정 모두 AWS 위에 둠.</p></div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14pt 22pt;">
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-s3.svg" width="32" height="32" style="border-radius: 6px; position: relative; left: 0px; top: 0px;">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">WEB</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">S3</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">정적 프론트 파일 호스팅 · Origin 버킷</span>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-cloudfront.svg" width="32" height="32" style="border-radius:6px">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">CDN</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">CloudFront</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">배포 URL 제공 · HTTPS · 엣지 캐싱</span>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-apigateway.svg" width="32" height="32" style="border-radius:6px">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">API</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">API Gateway</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">POST /analyze · GET /analyses/{id}</span>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-lambda.svg" width="32" height="32" style="border-radius:6px">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">RUN</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">Lambda</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">분석 로직 실행 · RAG 오케스트레이션</span>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-dynamodb.svg" width="32" height="32" style="border-radius:6px">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">STORE</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">DynamoDB</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">분석 결과 저장 · analysisId 기반 조회</span>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:7pt;padding-top:12pt;border-top:1px solid rgba(151,137,255,0.12);">
+    <img src="./assets/icon-bedrock.svg" width="32" height="32" style="border-radius:6px">
+    <span style="color:#7b68ff;font-size:9.5pt;font-weight:850;">AI</span>
+    <span style="color:#f7f5ff;font-size:16.5pt;font-weight:880;line-height:1.2;">Bedrock</span>
+    <span style="color:#aaa4c3;font-size:9.8pt;line-height:1.28;">KB 검색 · Claude 기반 판정</span>
+  </div>
+
+</div>
+</section></main>
+</body></html>

@@ -1,0 +1,150 @@
+:root {
+  --bg: #111320;
+  --panel: #1a1a2a;
+  --panel-2: #24253a;
+  --text: #f3f0ff;
+  --muted: #a6a0bf;
+  --accent: #8c7cff;
+  --accent-2: #e0dbff;
+  --line: rgba(255, 255, 255, 0.12);
+}
+
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("./PretendardVariable.woff2") format("woff2-variations");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Pretendard Variable", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.editor-shell {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.toolbar {
+  min-height: 64px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+select, button, .btn-link {
+  height: 34px;
+  padding: 6px 10px;
+  border: 1px solid #3a3b53;
+  border-radius: 9px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:hover, .btn-link:hover {
+  background: #2f314c;
+}
+
+button:disabled, .btn-link.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+button.active {
+  background: #35385f;
+  border-color: #6e72a4;
+}
+
+.btn-primary {
+  background: #3d3f6d;
+}
+
+.btn-primary:hover {
+  background: #51548a;
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.inline-check {
+  color: var(--muted);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#slide-select {
+  min-width: 170px;
+}
+
+.status-wrap {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.canvas-wrap {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(142, 130, 255, 0.12), transparent 65%),
+    #0e0f17;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+#stage {
+  width: 720px;
+  height: 405px;
+  border: 0;
+  transform-origin: top left;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1080px) {
+  .toolbar {
+    gap: 6px;
+  }
+  .toolbar-group {
+    margin-right: 6px;
+  }
+}

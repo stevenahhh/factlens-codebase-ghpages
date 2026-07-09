@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>판정 설계</title><link rel="stylesheet" href="./assets/deck.css"></head><body><main class="slide"><section class="stage">
+<div class="meta"><span class="section">DESIGN</span><span class="count">07 / 11</span></div>
+<div class="content"><h1 class="big-title">판정 설계</h1></div>
+
+<div class="two" style="gap:36pt;align-items:start">
+
+  <div>
+    <p style="color:var(--accent-2);font-size:9pt;font-weight:750;margin-bottom:10pt">근거 수집 순서</p>
+    <div class="line-list">
+      <div class="line-item">
+        <span class="num">1순위</span>
+        <div>
+          <h2>KB 검색</h2>
+          <p>등록된 KB(Knowledge Base)에서 관련 내용을 벡터 검색으로 찾음. 결과가 있으면 바로 판정으로 넘어감.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num">2순위</span>
+        <div>
+          <h2>인터넷 실시간 검색</h2>
+          <p>요청 시 활성화. KB에서 못 찾은 경우 보완용으로 사용.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num">대체</span>
+        <div>
+          <h2>내장 자료</h2>
+          <p>앞 두 단계가 모두 빈 결과일 때. 사전 준비한 근거 문서를 사용해 판정을 유지함.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p style="color:var(--accent-2);font-size:9pt;font-weight:750;margin-bottom:10pt">판정 결과 (고정 4가지)</p>
+    <div class="line-list">
+      <div class="line-item">
+        <span class="num good">✓</span>
+        <div>
+          <h2 class="good">근거 있음</h2>
+          <p>KB 또는 검색 근거가 주장을 지지함.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num bad">✗</span>
+        <div>
+          <h2 class="bad">수집 근거와 충돌</h2>
+          <p>출처가 명확히 반박하거나 수치가 다름.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num warn">?</span>
+        <div>
+          <h2 class="warn">근거 부족</h2>
+          <p>관련 자료를 찾지 못함. 보수적으로 처리.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num warn">!</span>
+        <div>
+          <h2 class="warn">과장 표현</h2>
+          <p>"100%", "항상", "완전히" 같은 절대 표현이 포함됨.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section></main>
+</body></html>

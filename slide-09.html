@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>구현 상세</title><link rel="stylesheet" href="./assets/deck.css"></head><body><main class="slide"><section class="stage">
+<div class="meta"><span class="section">DETAIL</span><span class="count">09 / 11</span></div>
+<div class="content"><h1 class="big-title">구현 상세</h1><p class="headline">Claude 모델 두 개를 직렬로 연결 — 논점 추출 후 근거와 수정 내용을 판정하는 구조.</p></div>
+
+<div class="detail-grid">
+
+  <div>
+    <p class="detail-subtitle">모델 구성</p>
+    <div class="line-list detail-compact">
+      <div class="line-item">
+        <span class="num">Model 1</span>
+        <div>
+          <h2>논점(주장) 추출</h2>
+          <p>발표자료에서 검증 가능한 주장 문장만 분리해 JSON으로 정규화. 무관한 서술은 제외.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num">Model 2</span>
+        <div>
+          <h2>근거 판정 + 수정 제안</h2>
+          <p>수집된 근거 범위 내에서만 라벨을 결정. 판정 결과와 함께 고칠 문장·보강점을 반환.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num">파이프라인</span>
+        <div>
+          <h2>규칙 기반 라우팅 + 응답 정규화</h2>
+          <p>자율성 준비된 백엔드. 도구-지식-프롬프트 결합은 거의 완성 단계.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="detail-subtitle">핵심 파라미터</p>
+    <div class="line-list detail-compact">
+      <div class="line-item">
+        <span class="num">searchMode</span>
+        <div>
+          <h2>검색 모드</h2>
+          <p>폴백 전용 또는 KB·인터넷 우선 검색 선택.</p>
+        </div>
+      </div>
+      <div class="line-item">
+        <span class="num">AgentCore</span>
+        <div>
+          <h2>아키텍처 연계 설계 반영</h2>
+          <p>실서비스 동작은 런타임 연결 완료 기준으로 설명 가능한 상태.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section></main>
+</body></html>
