@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-<div class="viewer-container">
+    <div class="viewer-container" id="viewer-root" tabindex="0">
   <div class="nav-bar">
     <button id="btn-prev" disabled>← Prev</button>
     <span class="slide-counter" id="counter">1 / 11</span>
@@ -52,7 +52,9 @@
   const btnPrev  = document.getElementById('btn-prev');
   const btnNext  = document.getElementById('btn-next');
   const btnFs    = document.getElementById('btn-fs');
+  const viewerRoot = document.getElementById('viewer-root');
   const scaler   = document.getElementById('scaler');
+  const viewport = document.getElementById('viewport');
 
   function goTo(n) {
     document.getElementById('frame-' + current).classList.remove('active');
@@ -66,11 +68,29 @@
   btnPrev.addEventListener('click', () => current > 1    && goTo(current - 1));
   btnNext.addEventListener('click', () => current < TOTAL && goTo(current + 1));
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  { if (current < TOTAL) goTo(current + 1); }
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    { if (current > 1)     goTo(current - 1); }
-    if (e.key === 'f' || e.key === 'F') btnFs.click();
-  });
+  function handleSlideShortcut(e) {
+    const isTypingTarget = e.target && (e.target.matches('input, textarea, [contenteditable=\"true\"], [contenteditable=\"\"]'));
+    if (isTypingTarget) return;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (current < TOTAL) goTo(current + 1);
+    }
+
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (current > 1) goTo(current - 1);
+    }
+
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault();
+      btnFs.click();
+    }
+  }
+
+  window.addEventListener('keydown', handleSlideShortcut, true);
+  document.addEventListener('keydown', handleSlideShortcut, true);
+  viewport.addEventListener('mouseenter', () => viewerRoot.focus());
 
   btnFs.addEventListener('click', () => {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen();
@@ -87,6 +107,7 @@
   }
   window.addEventListener('resize', rescale);
   rescale();
+  viewerRoot.focus();
 </script>
 </body>
 </html>
